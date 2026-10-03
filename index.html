@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miospe.Buy</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at center, #164d2a 0%, #092414 45%, #031008 100%);
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Überschrift */
+        header {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding-top: 35px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #8cff9b;
+            text-shadow:
+                0 0 10px #36ff5b,
+                0 0 25px #19c83b,
+                0 0 50px #0b7d25;
+        }
+
+        /* Gummibärchen allgemein */
+        .gummy {
+            position: absolute;
+            width: 95px;
+            height: 115px;
+            border-radius: 45% 45% 40% 40%;
+            z-index: 2;
+
+            box-shadow:
+                inset 12px 10px 15px rgba(255,255,255,0.3),
+                inset -10px -15px 20px rgba(0,0,0,0.25),
+                0 10px 25px rgba(0,0,0,0.5);
+
+            opacity: 0.95;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Kopf */
+        .gummy::before {
+            content: "";
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            top: -25px;
+            left: 15px;
+            border-radius: 50%;
+            background: inherit;
+            box-shadow:
+                inset 8px 7px 12px rgba(255,255,255,0.3),
+                inset -8px -10px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Ohren */
+        .gummy::after {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            top: -20px;
+            left: 0;
+            border-radius: 50%;
+            background: inherit;
+            box-shadow: 70px 0 0 0 currentColor;
+            opacity: 0.9;
+        }
+
+        /* Ecken */
+
+        .top-left {
+            top: 80px;
+            left: 45px;
+            background: #ff3333;
+            color: #ff3333;
+            transform: rotate(-15deg);
+        }
+
+        .top-right {
+            top: 80px;
+            right: 45px;
+            background: #ffd92f;
+            color: #ffd92f;
+            transform: rotate(15deg);
+            animation-delay: 1s;
+        }
+
+        .bottom-left {
+            bottom: 45px;
+            left: 45px;
+            background: #31d6ff;
+            color: #31d6ff;
+            transform: rotate(15deg);
+            animation-delay: 2s;
+        }
+
+        .bottom-right {
+            bottom: 45px;
+            right: 45px;
+            background: #ff4edb;
+            color: #ff4edb;
+            transform: rotate(-15deg);
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                translate: 0 0;
+            }
+
+            50% {
+                translate: 0 -15px;
+            }
+        }
+
+        /* Inhalt */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 5;
+        }
+
+        .content h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #b8d9bd;
+        }
+
+        .buy-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 35px;
+            border-radius: 12px;
+            background: #42ff63;
+            color: #05230d;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+
+            box-shadow:
+                0 0 15px #42ff63,
+                0 0 35px rgba(66,255,99,0.5);
+
+            transition: 0.2s;
+        }
+
+        .buy-button:hover {
+            transform: scale(1.08);
+            box-shadow:
+                0 0 25px #42ff63,
+                0 0 55px rgba(66,255,99,0.7);
+        }
+
+        /* kleine Lichtpunkte */
+        .glow {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: #16ff45;
+            filter: blur(120px);
+            opacity: 0.12;
+            border-radius: 50%;
+        }
+
+        .glow.one {
+            top: 10%;
+            left: 20%;
+        }
+
+        .glow.two {
+            bottom: 5%;
+            right: 20%;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            .gummy {
+                transform: scale(0.7);
+            }
+
+            .content h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <header>
+        <h1>Miospe.Buy</h1>
+    </header>
+
+    <!-- Gummibärchen -->
+    <div class="gummy top-left"></div>
+    <div class="gummy top-right"></div>
+    <div class="gummy bottom-left"></div>
+    <div class="gummy bottom-right"></div>
+
+    <main class="content">
+        <h2>Willkommen bei Miospe.Buy 🍬</h2>
+        <p>Dein süßer Shop im grünen Style.</p>
+
+        <a href="#" class="buy-button">
+            Jetzt entdecken
+        </a>
+    </main>
+
+</body>
+</html>
